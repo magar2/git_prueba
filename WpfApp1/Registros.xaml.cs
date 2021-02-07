@@ -133,23 +133,31 @@ namespace WpfApp1
                 }
                 else if (usuario_tipo.Text == "")
                 {
-                    using (Model.IncerEntities5 db = new IncerEntities5())
+                    try
                     {
-                        var per = db.empleado.Where(d => d.nombre == usuario_tipo.Text).First();
-                        per.nombre = txt_nom.Text;
-                        per.fecha_alta = DateTime.Parse(fecha.Text);
-                        per.fecha_nac = DateTime.Parse(fecha2.Text);
-                        per.domicilio = txt_domi.Text;
-                        per.ap_mat = txt_ape_mat.Text;
-                        per.ap_pat = txt_ape_pat.Text;
-                        per.ife = txt_ife.Text;
-                        per.curp = txt_cur.Text;
-                        per.rfc = txt_rfc.Text;
-                        per.telefono = txt_tel.Text;
+                        using (Model.IncerEntities5 db = new IncerEntities5())
+                        {
+                            var per = db.empleado.Where(d => d.nombre == usuario_tipo.Text).First();
+                            per.nombre = txt_nom.Text;
+                            per.fecha_alta = DateTime.Parse(fecha.Text);
+                            per.fecha_nac = DateTime.Parse(fecha2.Text);
+                            per.domicilio = txt_domi.Text;
+                            per.ap_mat = txt_ape_mat.Text;
+                            per.ap_pat = txt_ape_pat.Text;
+                            per.ife = txt_ife.Text;
+                            per.curp = txt_cur.Text;
+                            per.rfc = txt_rfc.Text;
+                            per.telefono = txt_tel.Text;
 
-                        db.Entry(per).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
+                            db.Entry(per).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show( ex.Message);
+                    }
+                   
                 }
                 else
                 {
@@ -169,30 +177,39 @@ namespace WpfApp1
             }
             else
             {
-                using (Model.IncerEntities5 db = new IncerEntities5())
+                if (txt_nom.Text == "" || fecha.Text == "" || fecha2.Text == "" || txt_domi.Text == "" || txt_ape_mat.Text == "" || txt_ape_pat.Text == "" || txt_ife.Text == "" || txt_rfc.Text == "" || txt_cur.Text == "" || txt_tel.Text == ""   )
                 {
-                    var nvo = new Model.empleado();
-                    nvo.nombre = txt_nom.Text;
-                    nvo.ife = txt_ife.Text;
-                    nvo.ap_mat = txt_ape_mat.Text;
-                    nvo.ap_pat = txt_ape_pat.Text;
-                    nvo.domicilio = txt_domi.Text;
-                    nvo.fecha_alta = DateTime.Parse(fecha.Text);
-                    nvo.fecha_nac = DateTime.Parse(fecha2.Text);
-                    nvo.telefono = txt_tel.Text;
-                    nvo.rfc = txt_rfc.Text;
-                    nvo.curp = txt_cur.Text;
-                    nvo.idtipo = Program.tipo;
-
-
-                    db.empleado.Add(nvo);
-                    db.SaveChanges();
+                    MessageBox.Show("No puedes dejar espacios en blanco");
                 }
+                else
+                {
+                    
+                    using (Model.IncerEntities5 db = new IncerEntities5())
+                    {
+                        var nvo = new Model.empleado();
+                        nvo.nombre = txt_nom.Text;
+                        nvo.ife = txt_ife.Text;
+                        nvo.ap_mat = txt_ape_mat.Text;
+                        nvo.ap_pat = txt_ape_pat.Text;
+                        nvo.domicilio = txt_domi.Text;
+                        nvo.fecha_alta = DateTime.Parse(fecha.Text);
+                        nvo.fecha_nac = DateTime.Parse(fecha2.Text);
+                        nvo.telefono = txt_tel.Text;
+                        nvo.rfc = txt_rfc.Text;
+                        nvo.curp = txt_cur.Text;
+                        nvo.idtipo = Program.tipo;
 
-                MessageBox.Show("Registrado corectamente");
-                Program.z = 0;
-                borra_campos();
-                this.Hide();
+
+                        db.empleado.Add(nvo);
+                        db.SaveChanges();
+                    }
+
+                    MessageBox.Show("Registrado corectamente");
+                    Program.z = 0;
+                    borra_campos();
+                    this.Hide();
+                }
+              
 
 
             }
