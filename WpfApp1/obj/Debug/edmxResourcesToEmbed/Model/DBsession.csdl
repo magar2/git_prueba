@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IncerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IncerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cliente" EntityType="IncerModel.cliente" />
+    <EntitySet Name="empleado" EntityType="IncerModel.empleado" />
+    <EntitySet Name="inventario" EntityType="IncerModel.inventario" />
+    <EntitySet Name="pedido_auto" EntityType="IncerModel.pedido_auto" />
+    <EntitySet Name="pedido_pen" EntityType="IncerModel.pedido_pen" />
+    <EntitySet Name="provedor" EntityType="IncerModel.provedor" />
+    <EntitySet Name="servicio" EntityType="IncerModel.servicio" />
+    <EntitySet Name="tipousuario" EntityType="IncerModel.tipousuario" />
+    <EntitySet Name="usuario" EntityType="IncerModel.usuario" />
+    <EntitySet Name="venta" EntityType="IncerModel.venta" />
+    <EntitySet Name="memoria_pedido" EntityType="IncerModel.memoria_pedido" />
+    <EntitySet Name="pedido" EntityType="IncerModel.pedido" />
+    <AssociationSet Name="FK_pedido_cliente" Association="IncerModel.FK_pedido_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="pedido" EntitySet="pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_pen_cliente" Association="IncerModel.FK_pedido_pen_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_tipousuario" Association="IncerModel.FK_empleado_tipousuario">
+      <End Role="tipousuario" EntitySet="tipousuario" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_empleado" Association="IncerModel.FK_pedido_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="pedido" EntitySet="pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_pen_empleado" Association="IncerModel.FK_pedido_pen_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_empleado" Association="IncerModel.FK_usuario_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inventario_provedor" Association="IncerModel.FK_inventario_provedor">
+      <End Role="provedor" EntitySet="provedor" />
+      <End Role="inventario" EntitySet="inventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_auto_pedido_pen" Association="IncerModel.FK_pedido_auto_pedido_pen">
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+      <End Role="pedido_auto" EntitySet="pedido_auto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_auto_pedido_pen1" Association="IncerModel.FK_pedido_auto_pedido_pen1">
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+      <End Role="pedido_auto" EntitySet="pedido_auto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_venta_pedido_auto" Association="IncerModel.FK_venta_pedido_auto">
+      <End Role="pedido_auto" EntitySet="pedido_auto" />
+      <End Role="venta" EntitySet="venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_servicio_pedido_pen" Association="IncerModel.FK_servicio_pedido_pen">
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+      <End Role="servicio" EntitySet="servicio" />
+    </AssociationSet>
+    <FunctionImport Name="ActualizaProvedor">
+      <Parameter Name="idprovedor" Mode="In" Type="Int32" />
+      <Parameter Name="rason_social" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="tipo_prod" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ActualizarCliente">
+      <Parameter Name="idcliente" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DevolverDatosSesion" ReturnType="Collection(IncerModel.DevolverDatosSesion_Result)">
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Eliminarcliente">
+      <Parameter Name="idcliente" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarEmpleado">
+      <Parameter Name="idempleado" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="eliminarinventario">
+      <Parameter Name="codigo" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarProvedor">
+      <Parameter Name="idprovedor" Mode="In" Type="Int32" />
+      <Parameter Name="rason_social" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarUsuario">
+      <Parameter Name="idempleado" Mode="In" Type="Int32" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="listadeinventario" ReturnType="Collection(IncerModel.listadeinventario_Result)" />
+    <FunctionImport Name="listadocb" ReturnType="Collection(IncerModel.listadocb_Result)" />
+    <FunctionImport Name="ListadoClientes" ReturnType="Collection(IncerModel.ListadoClientes_Result)" />
+    <FunctionImport Name="ListadoEmpleados" ReturnType="Collection(IncerModel.ListadoEmpleados_Result)" />
+    <FunctionImport Name="Listadopedidos" ReturnType="Collection(IncerModel.Listadopedidos_Result)" />
+    <FunctionImport Name="ListaProductos" ReturnType="Collection(IncerModel.ListaProductos_Result)" />
+    <FunctionImport Name="login" ReturnType="Collection(IncerModel.login_Result)">
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MantenimientoCliente">
+      <Parameter Name="idcliente" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MantenimientoEmpleados">
+      <Parameter Name="idempleado" Mode="In" Type="Int32" />
+      <Parameter Name="idtipo" Mode="In" Type="Int32" />
+      <Parameter Name="ife" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="ap_mat" Mode="In" Type="String" />
+      <Parameter Name="ap_pat" Mode="In" Type="String" />
+      <Parameter Name="domicilio" Mode="In" Type="String" />
+      <Parameter Name="fecha_nac" Mode="In" Type="DateTime" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="rfc" Mode="In" Type="String" />
+      <Parameter Name="curp" Mode="In" Type="String" />
+      <Parameter Name="fecha_alta" Mode="In" Type="DateTime" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Mantenimientoinventario">
+      <Parameter Name="idproducto" Mode="In" Type="Int32" />
+      <Parameter Name="codigo" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="marca" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="prec_com" Mode="In" Type="Decimal" />
+      <Parameter Name="prec_vent" Mode="In" Type="Decimal" />
+      <Parameter Name="stock" Mode="In" Type="Decimal" />
+      <Parameter Name="idprovedor" Mode="In" Type="Int32" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Mantenimientoprovedor">
+      <Parameter Name="idprovedor" Mode="In" Type="Int32" />
+      <Parameter Name="rason_social" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="tipo_prod" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RegistrarUsuario">
+      <Parameter Name="idempleado" Mode="In" Type="Int32" />
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="Mensaje" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="idcliente" />
+    </Key>
+    <Property Name="idcliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pedido" Relationship="IncerModel.FK_pedido_cliente" FromRole="cliente" ToRole="pedido" />
+    <NavigationProperty Name="pedido_pen" Relationship="IncerModel.FK_pedido_pen_cliente" FromRole="cliente" ToRole="pedido_pen" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="idempleado" />
+    </Key>
+    <Property Name="idempleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idtipo" Type="Int32" Nullable="false" />
+    <Property Name="ife" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ap_mat" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ap_pat" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="domicilio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="telefono" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="rfc" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_alta" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tipousuario" Relationship="IncerModel.FK_empleado_tipousuario" FromRole="empleado" ToRole="tipousuario" />
+    <NavigationProperty Name="pedido" Relationship="IncerModel.FK_pedido_empleado" FromRole="empleado" ToRole="pedido" />
+    <NavigationProperty Name="pedido_pen" Relationship="IncerModel.FK_pedido_pen_empleado" FromRole="empleado" ToRole="pedido_pen" />
+    <NavigationProperty Name="usuario" Relationship="IncerModel.FK_usuario_empleado" FromRole="empleado" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="inventario">
+    <Key>
+      <PropertyRef Name="idproducto" />
+    </Key>
+    <Property Name="idproducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="marca" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="prec_com" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="prec_vent" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="stock" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="idprovedor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="provedor" Relationship="IncerModel.FK_inventario_provedor" FromRole="inventario" ToRole="provedor" />
+  </EntityType>
+  <EntityType Name="pedido_auto">
+    <Key>
+      <PropertyRef Name="idped_auto" />
+    </Key>
+    <Property Name="idped_auto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpedido" Type="Int32" Nullable="false" />
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="piezas" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="precio_vent" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="precio_comp" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="pedido_pen" Relationship="IncerModel.FK_pedido_auto_pedido_pen" FromRole="pedido_auto" ToRole="pedido_pen" />
+    <NavigationProperty Name="pedido_pen1" Relationship="IncerModel.FK_pedido_auto_pedido_pen1" FromRole="pedido_auto" ToRole="pedido_pen" />
+    <NavigationProperty Name="venta" Relationship="IncerModel.FK_venta_pedido_auto" FromRole="pedido_auto" ToRole="venta" />
+  </EntityType>
+  <EntityType Name="pedido_pen">
+    <Key>
+      <PropertyRef Name="idpedido" />
+    </Key>
+    <Property Name="idpedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="piezas" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="estatus" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="IncerModel.FK_pedido_pen_cliente" FromRole="pedido_pen" ToRole="cliente" />
+    <NavigationProperty Name="empleado" Relationship="IncerModel.FK_pedido_pen_empleado" FromRole="pedido_pen" ToRole="empleado" />
+    <NavigationProperty Name="pedido_auto" Relationship="IncerModel.FK_pedido_auto_pedido_pen" FromRole="pedido_pen" ToRole="pedido_auto" />
+    <NavigationProperty Name="pedido_auto1" Relationship="IncerModel.FK_pedido_auto_pedido_pen1" FromRole="pedido_pen" ToRole="pedido_auto" />
+    <NavigationProperty Name="servicio" Relationship="IncerModel.FK_servicio_pedido_pen" FromRole="pedido_pen" ToRole="servicio" />
+  </EntityType>
+  <EntityType Name="provedor">
+    <Key>
+      <PropertyRef Name="idprovedor" />
+    </Key>
+    <Property Name="idprovedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rason_social" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_prod" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="inventario" Relationship="IncerModel.FK_inventario_provedor" FromRole="provedor" ToRole="inventario" />
+  </EntityType>
+  <EntityType Name="servicio">
+    <Key>
+      <PropertyRef Name="idservicio" />
+    </Key>
+    <Property Name="idservicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpedido" Type="Int32" Nullable="false" />
+    <Property Name="tipo_ser" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_reg" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="pedido_pen" Relationship="IncerModel.FK_servicio_pedido_pen" FromRole="servicio" ToRole="pedido_pen" />
+  </EntityType>
+  <EntityType Name="tipousuario">
+    <Key>
+      <PropertyRef Name="idtipo" />
+    </Key>
+    <Property Name="idtipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="empleado" Relationship="IncerModel.FK_empleado_tipousuario" FromRole="tipousuario" ToRole="empleado" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="Idusuario" />
+    </Key>
+    <Property Name="Idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="usuario1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="empleado" Relationship="IncerModel.FK_usuario_empleado" FromRole="usuario" ToRole="empleado" />
+  </EntityType>
+  <EntityType Name="venta">
+    <Key>
+      <PropertyRef Name="idventa" />
+    </Key>
+    <Property Name="idventa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpedido_auto" Type="Int32" Nullable="false" />
+    <Property Name="totalpagado" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="tipo_de_pago" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pedido_auto" Relationship="IncerModel.FK_venta_pedido_auto" FromRole="venta" ToRole="pedido_auto" />
+  </EntityType>
+  <EntityType Name="memoria_pedido">
+    <Key>
+      <PropertyRef Name="pedido" />
+    </Key>
+    <Property Name="pedido" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pedido">
+    <Key>
+      <PropertyRef Name="idpedido" />
+      <PropertyRef Name="idempleado" />
+      <PropertyRef Name="idcliente" />
+      <PropertyRef Name="pieza" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="estatus" />
+    </Key>
+    <Property Name="idpedido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="pieza" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="IncerModel.FK_pedido_cliente" FromRole="pedido" ToRole="cliente" />
+    <NavigationProperty Name="empleado" Relationship="IncerModel.FK_pedido_empleado" FromRole="pedido" ToRole="empleado" />
+  </EntityType>
+  <Association Name="FK_pedido_cliente">
+    <End Type="IncerModel.cliente" Role="cliente" Multiplicity="1" />
+    <End Type="IncerModel.pedido" Role="pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="idcliente" />
+      </Principal>
+      <Dependent Role="pedido">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_pen_cliente">
+    <End Type="IncerModel.cliente" Role="cliente" Multiplicity="1" />
+    <End Type="IncerModel.pedido_pen" Role="pedido_pen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="idcliente" />
+      </Principal>
+      <Dependent Role="pedido_pen">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_tipousuario">
+    <End Type="IncerModel.tipousuario" Role="tipousuario" Multiplicity="1" />
+    <End Type="IncerModel.empleado" Role="empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipousuario">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idtipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_empleado">
+    <End Type="IncerModel.empleado" Role="empleado" Multiplicity="1" />
+    <End Type="IncerModel.pedido" Role="pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="pedido">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_pen_empleado">
+    <End Type="IncerModel.empleado" Role="empleado" Multiplicity="1" />
+    <End Type="IncerModel.pedido_pen" Role="pedido_pen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="pedido_pen">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_empleado">
+    <End Type="IncerModel.empleado" Role="empleado" Multiplicity="1" />
+    <End Type="IncerModel.usuario" Role="usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inventario_provedor">
+    <End Type="IncerModel.provedor" Role="provedor" Multiplicity="1" />
+    <End Type="IncerModel.inventario" Role="inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provedor">
+        <PropertyRef Name="idprovedor" />
+      </Principal>
+      <Dependent Role="inventario">
+        <PropertyRef Name="idprovedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_auto_pedido_pen">
+    <End Type="IncerModel.pedido_pen" Role="pedido_pen" Multiplicity="1" />
+    <End Type="IncerModel.pedido_auto" Role="pedido_auto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_pen">
+        <PropertyRef Name="idpedido" />
+      </Principal>
+      <Dependent Role="pedido_auto">
+        <PropertyRef Name="idpedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_auto_pedido_pen1">
+    <End Type="IncerModel.pedido_pen" Role="pedido_pen" Multiplicity="1" />
+    <End Type="IncerModel.pedido_auto" Role="pedido_auto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_pen">
+        <PropertyRef Name="idpedido" />
+      </Principal>
+      <Dependent Role="pedido_auto">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_venta_pedido_auto">
+    <End Type="IncerModel.pedido_auto" Role="pedido_auto" Multiplicity="1" />
+    <End Type="IncerModel.venta" Role="venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_auto">
+        <PropertyRef Name="idped_auto" />
+      </Principal>
+      <Dependent Role="venta">
+        <PropertyRef Name="idpedido_auto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_servicio_pedido_pen">
+    <End Type="IncerModel.pedido_pen" Role="pedido_pen" Multiplicity="1" />
+    <End Type="IncerModel.servicio" Role="servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_pen">
+        <PropertyRef Name="idpedido" />
+      </Principal>
+      <Dependent Role="servicio">
+        <PropertyRef Name="idpedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="DevolverDatosSesion_Result">
+    <Property Type="Int32" Name="IdEmpleado" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="ap_pat" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="listadeinventario_Result">
+    <Property Type="Int32" Name="idproducto" Nullable="false" />
+    <Property Type="String" Name="codigo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="marca" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="prec_com" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="prec_vent" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="stock" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="idprovedor" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="listadocb_Result">
+    <Property Type="Int32" Name="idprovedor" Nullable="false" />
+    <Property Type="String" Name="rason_social" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="ListadoClientes_Result">
+    <Property Type="Int32" Name="idcliente" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="ListadoEmpleados_Result">
+    <Property Type="Int32" Name="idempleado" Nullable="false" />
+    <Property Type="Int32" Name="idtipo" Nullable="false" />
+    <Property Type="String" Name="ife" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="ap_mat" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="ap_pat" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="domicilio" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="fecha_nac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="rfc" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="curp" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="fecha_alta" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Listadopedidos_Result">
+    <Property Type="String" Name="idpedido" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="idempleado" Nullable="false" />
+    <Property Type="Int32" Name="idcliente" Nullable="false" />
+    <Property Type="String" Name="pieza" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="cantidad" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="estatus" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ListaProductos_Result">
+    <Property Type="Int32" Name="idprovedor" Nullable="false" />
+    <Property Type="String" Name="rason_social" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="tipo_prod" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="login_Result">
+    <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IncerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="idcliente" />
+    </Key>
+    <Property Name="idcliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="idempleado" />
+    </Key>
+    <Property Name="idempleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idtipo" Type="int" Nullable="false" />
+    <Property Name="ife" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ap_mat" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ap_pat" Type="varchar" MaxLength="30" />
+    <Property Name="domicilio" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="rfc" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inventario">
+    <Key>
+      <PropertyRef Name="idproducto" />
+    </Key>
+    <Property Name="idproducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="marca" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prec_com" Type="money" Nullable="false" />
+    <Property Name="prec_vent" Type="money" Nullable="false" />
+    <Property Name="stock" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="idprovedor" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Incer.dbo.memoria_pedido' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="memoria_pedido">
+    <Key>
+      <PropertyRef Name="pedido" />
+    </Key>
+    <Property Name="pedido" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Incer.dbo.pedido' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="pedido">
+    <Key>
+      <PropertyRef Name="idpedido" />
+      <PropertyRef Name="idempleado" />
+      <PropertyRef Name="idcliente" />
+      <PropertyRef Name="pieza" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="estatus" />
+    </Key>
+    <Property Name="idpedido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="pieza" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="estatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pedido_auto">
+    <Key>
+      <PropertyRef Name="idped_auto" />
+    </Key>
+    <Property Name="idped_auto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idpedido" Type="int" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="piezas" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="cantidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="precio_vent" Type="money" Nullable="false" />
+    <Property Name="precio_comp" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pedido_pen">
+    <Key>
+      <PropertyRef Name="idpedido" />
+    </Key>
+    <Property Name="idpedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="piezas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="estatus" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="provedor">
+    <Key>
+      <PropertyRef Name="idprovedor" />
+    </Key>
+    <Property Name="idprovedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rason_social" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="tipo_prod" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="servicio">
+    <Key>
+      <PropertyRef Name="idservicio" />
+    </Key>
+    <Property Name="idservicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idpedido" Type="int" Nullable="false" />
+    <Property Name="tipo_ser" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="estatus" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fecha_reg" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipousuario">
+    <Key>
+      <PropertyRef Name="idtipo" />
+    </Key>
+    <Property Name="idtipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="Idusuario" />
+    </Key>
+    <Property Name="Idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="venta">
+    <Key>
+      <PropertyRef Name="idventa" />
+    </Key>
+    <Property Name="idventa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idpedido_auto" Type="int" Nullable="false" />
+    <Property Name="totalpagado" Type="money" Nullable="false" />
+    <Property Name="tipo_de_pago" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_empleado_tipousuario">
+    <End Role="tipousuario" Type="Self.tipousuario" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipousuario">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idtipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inventario_provedor">
+    <End Role="provedor" Type="Self.provedor" Multiplicity="1" />
+    <End Role="inventario" Type="Self.inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provedor">
+        <PropertyRef Name="idprovedor" />
+      </Principal>
+      <Dependent Role="inventario">
+        <PropertyRef Name="idprovedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_auto_pedido_pen">
+    <End Role="pedido_pen" Type="Self.pedido_pen" Multiplicity="1" />
+    <End Role="pedido_auto" Type="Self.pedido_auto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_pen">
+        <PropertyRef Name="idpedido" />
+      </Principal>
+      <Dependent Role="pedido_auto">
+        <PropertyRef Name="idpedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_auto_pedido_pen1">
+    <End Role="pedido_pen" Type="Self.pedido_pen" Multiplicity="1" />
+    <End Role="pedido_auto" Type="Self.pedido_auto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_pen">
+        <PropertyRef Name="idpedido" />
+      </Principal>
+      <Dependent Role="pedido_auto">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+    <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="idcliente" />
+      </Principal>
+      <Dependent Role="pedido">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_empleado">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="pedido">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_pen_cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+    <End Role="pedido_pen" Type="Self.pedido_pen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="idcliente" />
+      </Principal>
+      <Dependent Role="pedido_pen">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pedido_pen_empleado">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="pedido_pen" Type="Self.pedido_pen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="pedido_pen">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_servicio_pedido_pen">
+    <End Role="pedido_pen" Type="Self.pedido_pen" Multiplicity="1" />
+    <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_pen">
+        <PropertyRef Name="idpedido" />
+      </Principal>
+      <Dependent Role="servicio">
+        <PropertyRef Name="idpedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_empleado">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_venta_pedido_auto">
+    <End Role="pedido_auto" Type="Self.pedido_auto" Multiplicity="1" />
+    <End Role="venta" Type="Self.venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedido_auto">
+        <PropertyRef Name="idped_auto" />
+      </Principal>
+      <Dependent Role="venta">
+        <PropertyRef Name="idpedido_auto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IncerModelStoreContainer">
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inventario" EntityType="Self.inventario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pedido_auto" EntityType="Self.pedido_auto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pedido_pen" EntityType="Self.pedido_pen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="provedor" EntityType="Self.provedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servicio" EntityType="Self.servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipousuario" EntityType="Self.tipousuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="venta" EntityType="Self.venta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="memoria_pedido" EntityType="Self.memoria_pedido" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [memoria_pedido].[pedido] AS [pedido]
+    FROM [dbo].[memoria_pedido] AS [memoria_pedido]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="pedido" EntityType="Self.pedido" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [pedido].[idpedido] AS [idpedido], 
+    [pedido].[idempleado] AS [idempleado], 
+    [pedido].[idcliente] AS [idcliente], 
+    [pedido].[pieza] AS [pieza], 
+    [pedido].[cantidad] AS [cantidad], 
+    [pedido].[estatus] AS [estatus]
+    FROM [dbo].[pedido] AS [pedido]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_empleado_tipousuario" Association="Self.FK_empleado_tipousuario">
+      <End Role="tipousuario" EntitySet="tipousuario" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inventario_provedor" Association="Self.FK_inventario_provedor">
+      <End Role="provedor" EntitySet="provedor" />
+      <End Role="inventario" EntitySet="inventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_auto_pedido_pen" Association="Self.FK_pedido_auto_pedido_pen">
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+      <End Role="pedido_auto" EntitySet="pedido_auto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_auto_pedido_pen1" Association="Self.FK_pedido_auto_pedido_pen1">
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+      <End Role="pedido_auto" EntitySet="pedido_auto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_cliente" Association="Self.FK_pedido_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="pedido" EntitySet="pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_empleado" Association="Self.FK_pedido_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="pedido" EntitySet="pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_pen_cliente" Association="Self.FK_pedido_pen_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pedido_pen_empleado" Association="Self.FK_pedido_pen_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_servicio_pedido_pen" Association="Self.FK_servicio_pedido_pen">
+      <End Role="pedido_pen" EntitySet="pedido_pen" />
+      <End Role="servicio" EntitySet="servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_empleado" Association="Self.FK_usuario_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_venta_pedido_auto" Association="Self.FK_venta_pedido_auto">
+      <End Role="pedido_auto" EntitySet="pedido_auto" />
+      <End Role="venta" EntitySet="venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

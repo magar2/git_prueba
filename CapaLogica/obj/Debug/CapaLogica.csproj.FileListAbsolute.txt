@@ -1,0 +1,14 @@
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\CapaDatos.dll
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\CapaDatos.pdb
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\obj\Debug\CapaLogica.csprojAssemblyReference.cache
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\obj\Debug\CapaLogica.csproj.CoreCompileInputs.cache
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\obj\Debug\CapaLogica.csproj.CopyComplete
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\CapaLogica.dll.config
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\EntityFramework.dll
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\EntityFramework.xml
+C:\Users\angel\Desktop\prueba de entity\WpfApp1\CapaLogica\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="def212d353b14b89970d054d3ac20cab" Name="Diagram1">
+        <EntityTypeShape EntityType="IncerModel.cliente" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.empleado" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.inventario" Width="1.5" PointX="11" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.pedido_auto" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.pedido_pen" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.provedor" Width="1.5" PointX="8.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.servicio" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.tipousuario" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.usuario" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.venta" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.memoria_pedido" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncerModel.pedido" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="IncerModel.FK_pedido_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_pedido_pen_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_empleado_tipousuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_pedido_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_pedido_pen_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_usuario_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_inventario_provedor" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_pedido_auto_pedido_pen" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_pedido_auto_pedido_pen1" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_venta_pedido_auto" ManuallyRouted="false" />
+        <AssociationConnector Association="IncerModel.FK_servicio_pedido_pen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

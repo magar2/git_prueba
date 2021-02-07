@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IncerModelStoreContainer" CdmEntityContainer="IncerEntities5">
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="IncerModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="IncerModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="ife" ColumnName="ife" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_mat" ColumnName="ap_mat" />
+          <ScalarProperty Name="ap_pat" ColumnName="ap_pat" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventario">
+      <EntityTypeMapping TypeName="IncerModel.inventario">
+        <MappingFragment StoreEntitySet="inventario">
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="prec_com" ColumnName="prec_com" />
+          <ScalarProperty Name="prec_vent" ColumnName="prec_vent" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido_auto">
+      <EntityTypeMapping TypeName="IncerModel.pedido_auto">
+        <MappingFragment StoreEntitySet="pedido_auto">
+          <ScalarProperty Name="idped_auto" ColumnName="idped_auto" />
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="piezas" ColumnName="piezas" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="precio_vent" ColumnName="precio_vent" />
+          <ScalarProperty Name="precio_comp" ColumnName="precio_comp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido_pen">
+      <EntityTypeMapping TypeName="IncerModel.pedido_pen">
+        <MappingFragment StoreEntitySet="pedido_pen">
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="piezas" ColumnName="piezas" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provedor">
+      <EntityTypeMapping TypeName="IncerModel.provedor">
+        <MappingFragment StoreEntitySet="provedor">
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+          <ScalarProperty Name="rason_social" ColumnName="rason_social" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="tipo_prod" ColumnName="tipo_prod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicio">
+      <EntityTypeMapping TypeName="IncerModel.servicio">
+        <MappingFragment StoreEntitySet="servicio">
+          <ScalarProperty Name="idservicio" ColumnName="idservicio" />
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="tipo_ser" ColumnName="tipo_ser" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fecha_reg" ColumnName="fecha_reg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipousuario">
+      <EntityTypeMapping TypeName="IncerModel.tipousuario">
+        <MappingFragment StoreEntitySet="tipousuario">
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="IncerModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="venta">
+      <EntityTypeMapping TypeName="IncerModel.venta">
+        <MappingFragment StoreEntitySet="venta">
+          <ScalarProperty Name="idventa" ColumnName="idventa" />
+          <ScalarProperty Name="idpedido_auto" ColumnName="idpedido_auto" />
+          <ScalarProperty Name="totalpagado" ColumnName="totalpagado" />
+          <ScalarProperty Name="tipo_de_pago" ColumnName="tipo_de_pago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="memoria_pedido">
+      <EntityTypeMapping TypeName="IncerModel.memoria_pedido">
+        <MappingFragment StoreEntitySet="memoria_pedido">
+          <ScalarProperty Name="pedido" ColumnName="pedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido">
+      <EntityTypeMapping TypeName="IncerModel.pedido">
+        <MappingFragment StoreEntitySet="pedido">
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="pieza" ColumnName="pieza" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,107 @@
+﻿<Window x:Class="WpfApp1.Registro"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+         Title="Registros" Height="800" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="winter-5838910_1920.jpg"/>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" Width="800" Height="40" VerticalAlignment="Top">
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FF474943" Opacity="0.6"/>
+            </StackPanel.Background>
+            <Label Content="REGISTRO" Width="120"  FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="340,0,0,0"/>
+            <Button Name="exit"  Width="40" Height="40" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="300,0,0,0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="#FF3E3E42" BorderBrush="#FF3E3E42" Click="exit_Click" >
+                <materialDesign:PackIcon Kind="WindowClose"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button>
+        </StackPanel>
+        <materialDesign:Card UniformCornerRadius="6" Width="600" Height="70" Margin="0,-600,0,0" Opacity=".50" Background="#FFD8CCBC">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="70" Margin="0,0,0,0" VerticalAlignment="Top" Width="600">
+                <Button Content="Empleado" Margin="60,0,0,0" Width="119" Click="Button_Click" VerticalAlignment="Center" Background="#FF1F1F21" BorderBrush="#FF8D8B88"/>
+                <Button Content="Clientes" Margin="57,0,0,0" Width="119" Click="Button_Click_1" VerticalAlignment="Center" Background="#FF1F1F1F" BorderBrush="#FF4D4D49"/>
+                <Button Content="Provedores" Margin="65,0,60,0" Width="119" Click="Button_Click_2" VerticalAlignment="Center" BorderBrush="#FF2C2C28" Background="#FF2C2C28"/>
+            </StackPanel>
+        </materialDesign:Card>
+        <StackPanel Orientation="Horizontal" Margin="40,141,37,446">
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FFD8D8D8" Opacity="0.4"/>
+            </StackPanel.Background>
+            <Label Content="LISTA DE EMPLEADOS" Width="150" Height="30" Margin="287,-163,0,0"/>
+            <DataGrid Name="DG01" HorizontalAlignment="Left" Height="160" Margin="-437,40,0,0" VerticalAlignment="Top" Width="722" AutoGenerateColumns="False" IsReadOnly="True" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Width="50" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="NOMBRE" Width="150" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="APELLIDO"  Width="150" Binding="{Binding Apellido}"/>
+                    <DataGridTextColumn Header="DOMICILIO" Width="200" Binding="{Binding Domicilio}"/>
+                    <DataGridTextColumn Header="TELEFONO" Width="150" Binding="{Binding Telefono}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="21,231,22,138" Width="721" Height="200" >
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FFD8D8D8" Opacity="0.7"/>
+            </StackPanel.Background>
+            <Label Content="LISTA DE CLIENTES" Width="137" Margin="296,5,0,172"/>
+            <DataGrid Name="DG02" HorizontalAlignment="Left" Height="160" Margin="-432,37,0,0" VerticalAlignment="Top" Width="721" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="80" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="NOMBRE" Width="200" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="DOMICILIO" Width="250" Binding="{Binding Direccion}"/>
+                    <DataGridTextColumn Header="TELEFONO" Width="200" Binding="{Binding Telefono}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="39,550,40,13" Width="721" >
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FFD8D8D8" Opacity="0.7"/>
+            </StackPanel.Background>
+            <Label Content="LISTA DE PROVEDORES" Width="160" Margin="296,5,0,207"/>
+            <DataGrid Name="DG03" HorizontalAlignment="Left" Margin="-455,38,0,1" Width="721" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="80" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="RAZON SOCIAL" Width="150" Binding="{Binding Razon_social}"/>
+                    <DataGridTextColumn Header="DIRECCION" Width="200" Binding="{Binding Direccion}"/>
+                    <DataGridTextColumn Header="TELEFONO" Width="120" Binding="{Binding Telefono}"/>
+                    <DataGridTextColumn Header="TIPO/AREA" Width="120" Binding="{Binding Tipo}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+        <materialDesign:DialogHost IsOpen="False" Name="cargar" Background="#FF040404" OverlayBackground="Black" MouseLeftButtonDown="cargar_MouseLeftButtonDown">
+            <materialDesign:DialogHost.DialogContent>
+                <materialDesign:Card Width="400" Height="150" >
+                    <StackPanel Background="White" Orientation="Vertical" Width="400" Height="150">
+                        <Label Content="¿Que deceas hacer?" FontSize="24" HorizontalAlignment="Center"/>
+                        <Button Name="nv_emp" Width="100" Height="40" Content="Nuevo" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,30,0,0" Click="nv_emp_Click"/>
+                        <Button Name="ed_emp" Width="100" Height="40" Content="Editar" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-40,0,0" Click="ed_emp_Click"/>
+                        <Button Name="eli_emp" Width="100" Height="40" Content="Eliminar" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-40,10,0" Click="eli_emp_Click"/>
+
+
+
+                    </StackPanel>
+                </materialDesign:Card>
+               
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+
+
+
+    </Grid>
+</Window>

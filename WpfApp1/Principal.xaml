@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfApp1.Principal"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Principal" Height="900" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="44*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="winter-5838910_1920.jpg"/>
+        </Grid.Background>
+        <Border Opacity=".80" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="0,-3,0,0" VerticalAlignment="Top" Width="1000" Background="Black"   Grid.ColumnSpan="2" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Height="48" Width="1000">
+                <Label Content="INSER TECNOLOGIA" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#DDFDFDFD" Margin="387,0,0,0"/>
+                <Button Name="minimize" Background="#FFFDFDFD" BorderBrush="#FFF9F9F9" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="297,0,0,0" Width="40" Height="40" Click="minimize_Click" >
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="#DD060606" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+                <Button Name="exit" Background="#FFF9F7FB" BorderBrush="#FFFDFDFD" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0,0,0" Width="40" Height="40" Click="exit_Click" >
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="#DD000000" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+
+        </Border>
+        <StackPanel  HorizontalAlignment="Left" Width="1000" Height="60" Margin="0,47,0,793" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Height="60">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FF2F2E2C" Opacity="0.6"/>
+                </StackPanel.Background>
+                <Button Name="registro" Width="130" Margin="40,0,3,0" Content="Registro" Background="#FF2F2E2D" BorderBrush="#FF2F2E2D" Click="registro_Click" />
+                <Button Name="inventario" Width="130" Margin="25,0,3,0" Content="Inventario" Background="#FF2F2E2D" BorderBrush="#FF2F2E2D"/>
+                <Button Name="pedidos" Width="130" Margin="25,0,3,0" Content="Pedidos" Background="#FF2F2E2D" BorderBrush="#FF2F2E2D"/>
+                <Button Name="servicios" Width="130" Margin="25,0,3,0" Content="Servicios" Background="#FF2F2E2D" BorderBrush="#FF2F2E2D"/>
+                <Button Name="ventas" Width="130" Margin="25,0,3,0" Content="Ventas" Background="#FF2F2E2D" BorderBrush="#FF2F2E2D"/>
+                <Button Name="cerra_sesion" Width="130" Margin="20,0,3,0" Content="Cerrar Sesion" Background="#FF2F2E2D" BorderBrush="#FF2F2E2D"/>
+            </StackPanel>
+
+        </StackPanel>
+        <materialDesign:Card  materialDesign:ShadowAssist.ShadowDepth="Depth5"  UniformCornerRadius="6" HorizontalAlignment="Left" Margin="11,120,0,0" VerticalAlignment="Top" Width="335" Height="142" RenderTransformOrigin="0.059,-0.459" Foreground="{x:Null}">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="#FFC6B9A8" Opacity="0.3"/>
+            </materialDesign:Card.Background>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="334">
+                <Ellipse HorizontalAlignment="Left" Height="93" Margin="10,5,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-0.7,0.023">
+                    <Ellipse.Fill>
+                        <ImageBrush  Opacity="0.6" ImageSource="bangkok-5863391_1920.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Label Content="N° Empleado :" Width="100" Height="25" VerticalAlignment="Top"/>
+                <Label Content="        Nombre :" Width="100" Height="26" VerticalAlignment="Center" Margin="-100,30,0,86"/>
+                <Label Content="        Apellido :" Width="100" Height="25" VerticalAlignment="Center" Margin="-100,3,0,0"/>
+                <Label Content="            Fecha :" Width="100" Height="25" VerticalAlignment="Center" Margin="-100,65,0,0"/>
+                <Label Name="num_emple" Content="" Width="100" Height="25" VerticalAlignment="Top" Margin="10,0,0,0"/>
+                <Label Name="nom_emple" Content="" Width="100" Height="25" VerticalAlignment="Center" Margin="-100,30,0,87"/>
+                <Label Name="ape_emple" Content="" Width="100" Height="25" VerticalAlignment="Center" Margin="-100,4,0,0"/>
+                <Label Name="fecha" Content="" Width="100" Height="25" VerticalAlignment="Center" Margin="-100,65,0,0"/>
+            </StackPanel>
+
+
+        </materialDesign:Card>
+
+    </Grid>
+</Window>

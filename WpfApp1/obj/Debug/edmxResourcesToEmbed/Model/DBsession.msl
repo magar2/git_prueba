@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IncerModelStoreContainer" CdmEntityContainer="IncerEntities">
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="IncerModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="IncerModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="ap_pat" ColumnName="ap_pat" />
+          <ScalarProperty Name="ap_mat" ColumnName="ap_mat" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ife" ColumnName="ife" />
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventario">
+      <EntityTypeMapping TypeName="IncerModel.inventario">
+        <MappingFragment StoreEntitySet="inventario">
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="prec_vent" ColumnName="prec_vent" />
+          <ScalarProperty Name="prec_com" ColumnName="prec_com" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido_auto">
+      <EntityTypeMapping TypeName="IncerModel.pedido_auto">
+        <MappingFragment StoreEntitySet="pedido_auto">
+          <ScalarProperty Name="precio_comp" ColumnName="precio_comp" />
+          <ScalarProperty Name="precio_vent" ColumnName="precio_vent" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="piezas" ColumnName="piezas" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="idped_auto" ColumnName="idped_auto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido_pen">
+      <EntityTypeMapping TypeName="IncerModel.pedido_pen">
+        <MappingFragment StoreEntitySet="pedido_pen">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="piezas" ColumnName="piezas" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provedor">
+      <EntityTypeMapping TypeName="IncerModel.provedor">
+        <MappingFragment StoreEntitySet="provedor">
+          <ScalarProperty Name="tipo_prod" ColumnName="tipo_prod" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="rason_social" ColumnName="rason_social" />
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicio">
+      <EntityTypeMapping TypeName="IncerModel.servicio">
+        <MappingFragment StoreEntitySet="servicio">
+          <ScalarProperty Name="fecha_reg" ColumnName="fecha_reg" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="tipo_ser" ColumnName="tipo_ser" />
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="idservicio" ColumnName="idservicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipousuario">
+      <EntityTypeMapping TypeName="IncerModel.tipousuario">
+        <MappingFragment StoreEntitySet="tipousuario">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="IncerModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="venta">
+      <EntityTypeMapping TypeName="IncerModel.venta">
+        <MappingFragment StoreEntitySet="venta">
+          <ScalarProperty Name="tipo_de_pago" ColumnName="tipo_de_pago" />
+          <ScalarProperty Name="totalpagado" ColumnName="totalpagado" />
+          <ScalarProperty Name="idpedido_auto" ColumnName="idpedido_auto" />
+          <ScalarProperty Name="idventa" ColumnName="idventa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="memoria_pedido">
+      <EntityTypeMapping TypeName="IncerModel.memoria_pedido">
+        <MappingFragment StoreEntitySet="memoria_pedido">
+          <ScalarProperty Name="pedido" ColumnName="pedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedido">
+      <EntityTypeMapping TypeName="IncerModel.pedido">
+        <MappingFragment StoreEntitySet="pedido">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="pieza" ColumnName="pieza" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ActualizaProvedor" FunctionName="IncerModel.Store.ActualizaProvedor" />
+    <FunctionImportMapping FunctionImportName="ActualizarCliente" FunctionName="IncerModel.Store.ActualizarCliente" />
+    <FunctionImportMapping FunctionImportName="DevolverDatosSesion" FunctionName="IncerModel.Store.DevolverDatosSesion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.DevolverDatosSesion_Result">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_pat" ColumnName="ap_pat" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Eliminarcliente" FunctionName="IncerModel.Store.Eliminarcliente" />
+    <FunctionImportMapping FunctionImportName="EliminarEmpleado" FunctionName="IncerModel.Store.EliminarEmpleado" />
+    <FunctionImportMapping FunctionImportName="eliminarinventario" FunctionName="IncerModel.Store.eliminarinventario" />
+    <FunctionImportMapping FunctionImportName="EliminarProvedor" FunctionName="IncerModel.Store.EliminarProvedor" />
+    <FunctionImportMapping FunctionImportName="EliminarUsuario" FunctionName="IncerModel.Store.EliminarUsuario" />
+    <FunctionImportMapping FunctionImportName="listadeinventario" FunctionName="IncerModel.Store.listadeinventario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.listadeinventario_Result">
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="prec_com" ColumnName="prec_com" />
+          <ScalarProperty Name="prec_vent" ColumnName="prec_vent" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="listadocb" FunctionName="IncerModel.Store.listadocb">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.listadocb_Result">
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+          <ScalarProperty Name="rason_social" ColumnName="rason_social" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ListadoClientes" FunctionName="IncerModel.Store.ListadoClientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.ListadoClientes_Result">
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ListadoEmpleados" FunctionName="IncerModel.Store.ListadoEmpleados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.ListadoEmpleados_Result">
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="ife" ColumnName="ife" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_mat" ColumnName="ap_mat" />
+          <ScalarProperty Name="ap_pat" ColumnName="ap_pat" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Listadopedidos" FunctionName="IncerModel.Store.Listadopedidos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.Listadopedidos_Result">
+          <ScalarProperty Name="idpedido" ColumnName="idpedido" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="pieza" ColumnName="pieza" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ListaProductos" FunctionName="IncerModel.Store.ListaProductos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.ListaProductos_Result">
+          <ScalarProperty Name="idprovedor" ColumnName="idprovedor" />
+          <ScalarProperty Name="rason_social" ColumnName="rason_social" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="tipo_prod" ColumnName="tipo_prod" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="login" FunctionName="IncerModel.Store.login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IncerModel.login_Result">
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MantenimientoCliente" FunctionName="IncerModel.Store.MantenimientoCliente" />
+    <FunctionImportMapping FunctionImportName="MantenimientoEmpleados" FunctionName="IncerModel.Store.MantenimientoEmpleados" />
+    <FunctionImportMapping FunctionImportName="Mantenimientoinventario" FunctionName="IncerModel.Store.Mantenimientoinventario" />
+    <FunctionImportMapping FunctionImportName="Mantenimientoprovedor" FunctionName="IncerModel.Store.Mantenimientoprovedor" />
+    <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="IncerModel.Store.RegistrarUsuario" />
+  </EntityContainerMapping>
+</Mapping>

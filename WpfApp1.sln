@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{00A2E14A-8432-4DA8-9F06-ADF3752326D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaLogica", "CapaLogica\CapaLogica.csproj", "{D72E6800-E44E-4F33-96E4-02B668478703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{89EBAA85-CC5C-4F71-8F83-8E5DC5626174}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A2E14A-8432-4DA8-9F06-ADF3752326D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A2E14A-8432-4DA8-9F06-ADF3752326D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A2E14A-8432-4DA8-9F06-ADF3752326D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A2E14A-8432-4DA8-9F06-ADF3752326D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D72E6800-E44E-4F33-96E4-02B668478703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D72E6800-E44E-4F33-96E4-02B668478703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D72E6800-E44E-4F33-96E4-02B668478703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D72E6800-E44E-4F33-96E4-02B668478703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89EBAA85-CC5C-4F71-8F83-8E5DC5626174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89EBAA85-CC5C-4F71-8F83-8E5DC5626174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89EBAA85-CC5C-4F71-8F83-8E5DC5626174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89EBAA85-CC5C-4F71-8F83-8E5DC5626174}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10991B13-A549-4CAE-9884-236EC5874CCF}
+	EndGlobalSection
+EndGlobal
