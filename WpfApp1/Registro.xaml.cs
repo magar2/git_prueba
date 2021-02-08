@@ -41,12 +41,12 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            cliente.IsOpen = true;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            provedor.IsOpen = true;
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -188,9 +188,11 @@ namespace WpfApp1
             R.txt_cur.IsEnabled = false;
             R.txt_rfc.IsEnabled = false;
             R.txt_tel.IsEnabled = false;
-            R.guardar.Content = "Eliminar";
+            R.guardar.Content = "Cargar";
+            Program.e = 1;
             R.cargarlosusuarios();
             R.ShowDialog();
+            MostrarListadoEmpleados();
 
         }
     }

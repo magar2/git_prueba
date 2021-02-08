@@ -20,8 +20,11 @@ namespace WpfApp1
         //Variable de registro 
         public static int y;
         public static int z;
+        public static int e;
+        public static int a;
 
         //Variable de tipo usuario 
-        public static int tipo; 
+        public static int tipo;
+        public static int Id;
     }
 }

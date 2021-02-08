@@ -91,15 +91,37 @@
                         <Button Name="nv_emp" Width="100" Height="40" Content="Nuevo" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,30,0,0" Click="nv_emp_Click"/>
                         <Button Name="ed_emp" Width="100" Height="40" Content="Editar" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-40,0,0" Click="ed_emp_Click"/>
                         <Button Name="eli_emp" Width="100" Height="40" Content="Eliminar" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-40,10,0" Click="eli_emp_Click"/>
-
-
-
                     </StackPanel>
                 </materialDesign:Card>
                
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+        <materialDesign:DialogHost IsOpen="False" Name="cliente" Background="#FF040404" OverlayBackground="Black">
+            <materialDesign:DialogHost.DialogContent>
+                <materialDesign:Card Width="400" Height="150" >
+                    <StackPanel Background="White" Orientation="Vertical" Width="400" Height="150">
+                        <Label Content="¿Que deceas hacer?" FontSize="24" HorizontalAlignment="Center"/>
+                        <Button Name="nv_cli" Width="100" Height="40" Content="Nuevo" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,30,0,0"/>
+                        <Button Name="ed_cli" Width="100" Height="40" Content="Editar" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-40,0,0" />
+                        <Button Name="eli_cli" Width="100" Height="40" Content="Eliminar" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-40,10,0" />
+                    </StackPanel>
+                </materialDesign:Card>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        
+        <materialDesign:DialogHost IsOpen="False" Name="provedor" Background="#FF040404" OverlayBackground="Black" >
+            <materialDesign:DialogHost.DialogContent>
+                <materialDesign:Card Width="400" Height="150" >
+                    <StackPanel Background="White" Orientation="Vertical" Width="400" Height="150">
+                        <Label Content="¿Que deceas hacer?" FontSize="24" HorizontalAlignment="Center"/>
+                        <Button Name="nv_pro" Width="100" Height="40" Content="Nuevo" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,30,0,0" />
+                        <Button Name="ed_pro" Width="100" Height="40" Content="Editar" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-40,0,0" />
+                        <Button Name="eli_pro" Width="100" Height="40" Content="Eliminar" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-40,10,0"/>
+                    </StackPanel>
+                </materialDesign:Card>
 
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
 
 
 
